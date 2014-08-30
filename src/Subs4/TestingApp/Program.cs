@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Subs4.CsvReportReaderLib;
+using XmlPersonsLib;
 
 namespace TestingApp
 {
@@ -12,8 +13,11 @@ namespace TestingApp
         static void Main(string[] args)
         {
             var filename = @"C:\Users\smb\SkyDrive\atlant\1408.csv";
-            var reader = new CsvReportReader();
-            var r = reader.Load(filename);
+            var personsFileName = @"C:\Users\smb\SkyDrive\atlant\persons.xml";
+            var xmldal = new XmlPersonsDAL();
+            var persons = xmldal.GetPersons(personsFileName);
+            var reader = new CsvReportReader(persons);
+            var report = reader.Load(filename);
         }
     }
 }

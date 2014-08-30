@@ -17,5 +17,15 @@ namespace Subs4.Common.Helpers
                 return d;
             return null;
         }
+
+        public static int? ToInt(object value)
+        {
+            if (value == null) return null;
+
+            int i;
+            if (int.TryParse(value.ToString(), out i))
+                return i;
+            return null;
+        }
     }
 }

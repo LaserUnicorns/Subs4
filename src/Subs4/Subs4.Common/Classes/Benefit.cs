@@ -10,6 +10,11 @@ namespace Subs4.Common.Classes
     {
         public string ServiceGroupCode { get; set; }
         public string CategoryCode { get; set; }
-        public double? Value { get; set; }
+        public double Value { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0} | {1} | {2}", ServiceGroupCode, CategoryCode, Value);
+        }
     }
 }

@@ -10,5 +10,12 @@ namespace Subs4.Common.Classes
     {
         public string Code { get; set; }
         public string Name { get; set; }
+
+        public bool IsMain { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}{2} | {1}", Code, Name, IsMain ? "!" : "");
+        }
     }
 }

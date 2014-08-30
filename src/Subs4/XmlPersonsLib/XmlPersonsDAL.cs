@@ -14,7 +14,7 @@ namespace XmlPersonsLib
         public IEnumerable<Person> GetPersons(string filename)
         {
             var xe = XElement.Load(filename);
-            return xe.Elements("persons").Select(ToPerson).ToList();
+            return xe.Elements("person").Select(ToPerson).ToList();
         }
 
         private static Person ToPerson(XElement e)
@@ -34,13 +34,14 @@ namespace XmlPersonsLib
                                            House = int.Parse(e.Element("House").Value),
                                            Building = int.Parse(e.Element("Building").Value),
                                            Flat = int.Parse(e.Element("Flat").Value),
-                                           Room = int.Parse(e.Element("Room").Value)
+                                           Room = NullableConvert.ToInt(e.Element("Room").Value)
                                        }
                          };
 
             var mainCategory = new Category
                                {
-                                   Code = e.Element("Category").Value
+                                   Code = e.Element("Category").Value,
+                                   IsMain = true
                                };
 
             person.Categories = person.Categories.Append(mainCategory).ToList();

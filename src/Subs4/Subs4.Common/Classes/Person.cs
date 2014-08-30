@@ -34,5 +34,10 @@ namespace Subs4.Common.Classes
         
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Benefit> Benefits { get; set; }
+
+        public override string ToString()
+        {
+            return LastNameWithInitials;
+        }
     }
 }

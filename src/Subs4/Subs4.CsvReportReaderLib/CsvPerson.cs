@@ -20,16 +20,16 @@ namespace Subs4.CsvReportReaderLib
 
         public double? Sum { get; set; }
 
-        public double? CalcSum
+        public double CalcSum
         {
             get
             {
-                return Heating +
-                       Maintenance +
-                       HotWater +
-                       ColdWater +
-                       Sewerage +
-                       +Gas;
+                return Heating.GetValueOrDefault() +
+                       Maintenance.GetValueOrDefault() +
+                       HotWater.GetValueOrDefault() +
+                       ColdWater.GetValueOrDefault() +
+                       Sewerage.GetValueOrDefault() +
+                       +Gas.GetValueOrDefault();
             }
         }
     }
