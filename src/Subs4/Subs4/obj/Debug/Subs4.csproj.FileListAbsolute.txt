@@ -1,0 +1,5 @@
+D:\projects\Subs4\Subs4\Subs4\bin\Debug\Subs4.dll
+D:\projects\Subs4\Subs4\Subs4\bin\Debug\Subs4.pdb
+D:\projects\Subs4\Subs4\Subs4\obj\Debug\Subs4.csprojResolveAssemblyReference.cache
+D:\projects\Subs4\Subs4\Subs4\obj\Debug\Subs4.dll
+D:\projects\Subs4\Subs4\Subs4\obj\Debug\Subs4.pdb
