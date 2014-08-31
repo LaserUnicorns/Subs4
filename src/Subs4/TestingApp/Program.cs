@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Subs4.CsvReportReaderLib;
-using XmlPersonsLib;
+using Subs4.ReportLib;
+using Subs4.XmlPersonsLib;
 
 namespace TestingApp
 {
@@ -14,10 +17,14 @@ namespace TestingApp
         {
             var filename = @"C:\Users\smb\SkyDrive\atlant\1408.csv";
             var personsFileName = @"C:\Users\smb\SkyDrive\atlant\persons.xml";
+            var pdfFileName = @"C:\Users\smb\SkyDrive\atlant\report.pdf";
             var xmldal = new XmlPersonsDAL();
             var persons = xmldal.GetPersons(personsFileName);
             var reader = new CsvReportReader(persons);
             var report = reader.Load(filename);
+
+            ReportCreator.CreateReport(report, pdfFileName);
+            Process.Start(pdfFileName);
         }
     }
 }
