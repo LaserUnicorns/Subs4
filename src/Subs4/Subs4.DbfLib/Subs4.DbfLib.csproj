@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4C0BB7D-E2BF-4D91-9A71-7F044FD170A8}</ProjectGuid>
+    <ProjectGuid>{B1E67E9C-8E7F-455B-8133-6460B0C62F01}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XmlPersonsLib</RootNamespace>
-    <AssemblyName>XmlPersonsLib</AssemblyName>
+    <RootNamespace>Subs4.DbfLib</RootNamespace>
+    <AssemblyName>Subs4.DbfLib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,8 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbfDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlPersonsDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Subs4.Common\Subs4.Common.csproj">

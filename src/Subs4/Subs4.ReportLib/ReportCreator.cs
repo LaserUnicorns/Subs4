@@ -16,7 +16,7 @@ namespace Subs4.ReportLib
         private static readonly Dictionary<string, string> Services =
             new Dictionary<string, string>
             {
-                {"03", "Содержание и ремонт жилья"},
+                {"03", "Содержание"},
                 {"10", "Отопление"},
                 {"11", "Горячая вода"},
                 {"12", "Холодная вода"},
@@ -69,6 +69,7 @@ namespace Subs4.ReportLib
         public static void CreateReport(IEnumerable<Person> persons, string filename)
         {
             var doc = new Document(PageSize.A4);
+            doc.SetMargins(doc.LeftMargin, doc.RightMargin, 12f, 12f);
 
             PdfWriter.GetInstance(doc, File.Create(filename));
 
@@ -193,7 +194,7 @@ namespace Subs4.ReportLib
 
             foreach (var col in cols)
             {
-                table.AddCell(col.ToString(), HorizontalAlignment.Right, isBold: true);
+                table.AddCell(col.ToString("0.00"), HorizontalAlignment.Right, isBold: true);
             }
 
             var totalSum = persons.SelectMany(x => x.Benefits).Select(x => x.Value).Sum();

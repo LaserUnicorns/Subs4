@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XmlPersonsLib")]
+[assembly: AssemblyTitle("Subs4.DbfLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("XmlPersonsLib")]
+[assembly: AssemblyProduct("Subs4.DbfLib")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5cdd3541-d3bb-4ac0-940f-9ae4c086e45d")]
+[assembly: Guid("7ff9f7df-571e-4090-8b21-c1862cc6a16b")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -51,13 +51,13 @@ namespace Subs4.CsvReportReaderLib
             var person = new CsvPerson
                          {
                              LastNameWithInitials = line[1],
-                             Address = line[4],
-                             Maintenance = NullableConvert.ToDouble(line[6]),
-                             HotWater = NullableConvert.ToDouble(line[7]),
-                             ColdWater = NullableConvert.ToDouble(line[9]),
-                             Sewerage = NullableConvert.ToDouble(line[10]),
-                             Gas = NullableConvert.ToDouble(line[11]),
-                             Sum = NullableConvert.ToDouble(line[12])
+                             Address = line[5],
+                             Maintenance = NullableConvert.ToDouble(line[7]),
+                             HotWater = NullableConvert.ToDouble(line[8]),
+                             ColdWater = NullableConvert.ToDouble(line[10]),
+                             Sewerage = NullableConvert.ToDouble(line[11]),
+                             Gas = NullableConvert.ToDouble(line[13]),
+                             Sum = NullableConvert.ToDouble(line[14])
                          };
 
             if (Math.Abs(person.Sum.GetValueOrDefault() - person.CalcSum) > 0.01)
