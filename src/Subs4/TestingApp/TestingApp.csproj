@@ -56,6 +56,10 @@
       <Project>{bd8c0122-9264-4b0f-b74c-3a0ded72eaea}</Project>
       <Name>Subs4.CsvReportReaderLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Subs4.DbfLib\Subs4.DbfLib.csproj">
+      <Project>{B1E67E9C-8E7F-455B-8133-6460B0C62F01}</Project>
+      <Name>Subs4.DbfLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Subs4.ReportLib\Subs4.ReportLib.csproj">
       <Project>{3003F8C8-942F-412E-8DC4-D3D671CE7730}</Project>
       <Name>Subs4.ReportLib</Name>
