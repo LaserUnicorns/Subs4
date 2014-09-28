@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,8 @@ namespace TestingApp
             var reader = new CsvReportReader(persons);
             var report = reader.Load(filename);
 
-            //ReportCreator.CreateReport(report, pdfFileName);
-            //Process.Start(pdfFileName);
+            ReportCreator.CreateReport(report, pdfFileName);
+            Process.Start(pdfFileName);
 
             using (var dbf = new DbfDAL())
             {

@@ -31,7 +31,6 @@ namespace Subs4.Common.Classes
             get { return string.Format("{0} {1}. {2}.", LastName, FirstName[0], MiddleName[0]); }
         }
 
-        
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Benefit> Benefits { get; set; }
 

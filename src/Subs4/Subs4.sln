@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subs4.XmlPersonsLib", "Subs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subs4.DbfLib", "Subs4.DbfLib\Subs4.DbfLib.csproj", "{B1E67E9C-8E7F-455B-8133-6460B0C62F01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subs4.WinApp", "Subs4.WinApp\Subs4.WinApp.csproj", "{2E870B25-BD38-4117-8574-32BC6EA0739C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B1E67E9C-8E7F-455B-8133-6460B0C62F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E67E9C-8E7F-455B-8133-6460B0C62F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E67E9C-8E7F-455B-8133-6460B0C62F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E870B25-BD38-4117-8574-32BC6EA0739C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E870B25-BD38-4117-8574-32BC6EA0739C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E870B25-BD38-4117-8574-32BC6EA0739C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E870B25-BD38-4117-8574-32BC6EA0739C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
