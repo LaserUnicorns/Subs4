@@ -78,7 +78,7 @@ namespace Subs4.DbfLib
                 cmd.Parameters.AddWithValue("@komnata", person.Address.Room.ToString());
                 cmd.Parameters.AddWithValue("@catid", "");
                 cmd.Parameters.AddWithValue("@pr", string.Empty);
-                cmd.Parameters.AddWithValue("@orgid", string.Empty);
+                cmd.Parameters.AddWithValue("@orgid", "28");
 
                 cmd.Parameters.AddWithValue("@usluga", "00");
                 cmd.Parameters.AddWithValue("@summa", 0.0);
