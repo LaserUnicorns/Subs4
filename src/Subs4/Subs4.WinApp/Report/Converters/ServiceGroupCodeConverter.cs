@@ -10,7 +10,8 @@ namespace Subs4.WinApp.Report.Converters
         private static readonly Dictionary<string, string> Services =
             new Dictionary<string, string>
             {
-                {"03", "Содержание"},
+                //{"03", "Содержание"},
+                {"01", "Содержание"},
                 {"10", "Отопление"},
                 {"11", "Горячая вода"},
                 {"12", "Холодная вода"},

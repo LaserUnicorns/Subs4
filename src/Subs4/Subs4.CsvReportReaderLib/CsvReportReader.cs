@@ -145,7 +145,8 @@ namespace Subs4.CsvReportReaderLib
                     var benefit = new Benefit
                     {
                         CategoryCode = person.Categories.First(x => !x.IsMain).Code,
-                        ServiceGroupCode = "03",
+                        //ServiceGroupCode = "03",
+                        ServiceGroupCode = "01",
                         Value = otherCsvPerson.Maintenance.Value
                     };
                     person.Benefits = person.Benefits.Append(benefit).ToList();
