@@ -17,6 +17,7 @@ namespace Subs4.CsvReportReaderLib
         public double? ColdWater { get; set; }
         public double? Sewerage { get; set; }
         public double? Gas { get; set; }
+        public double? Garbage { get; set; }
 
         public double? Sum { get; set; }
 
@@ -29,7 +30,9 @@ namespace Subs4.CsvReportReaderLib
                        HotWater.GetValueOrDefault() +
                        ColdWater.GetValueOrDefault() +
                        Sewerage.GetValueOrDefault() +
-                       +Gas.GetValueOrDefault();
+                       Gas.GetValueOrDefault() +
+                       Garbage.GetValueOrDefault()
+                       ;
             }
         }
     }

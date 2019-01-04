@@ -51,6 +51,7 @@
     <Compile Include="Helpers\EnumerableExtensions.cs" />
     <Compile Include="Helpers\NullableConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceCodes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

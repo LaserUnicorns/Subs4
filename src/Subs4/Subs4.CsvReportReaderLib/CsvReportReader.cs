@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Subs4.Common;
 using Subs4.Common.Classes;
 using Subs4.Common.Helpers;
 
@@ -16,18 +17,13 @@ namespace Subs4.CsvReportReaderLib
         private readonly Dictionary<string, Func<CsvPerson, double?>> _benefitCodes =
             new Dictionary<string, Func<CsvPerson, double?>>
             {
-                //{"03", p => p.Maintenance},
-                //{"10", p => p.Heating},
-                //{"11", p => p.HotWater},
-                //{"12", p => p.ColdWater},
-                //{"13", p => p.Sewerage},
-                //{"22", p => p.Gas},
-                {"01", p => p.Maintenance},
-                {"10", p => p.Heating},
-                {"11", p => p.HotWater},
-                {"12", p => p.ColdWater},
-                {"13", p => p.Sewerage},
-                {"22", p => p.Gas},
+                {ServiceCodes.Maintenance, p => p.Maintenance},
+                {ServiceCodes.Heating, p => p.Heating},
+                {ServiceCodes.HotWater, p => p.HotWater},
+                {ServiceCodes.ColdWater, p => p.ColdWater},
+                {ServiceCodes.Sewerage, p => p.Sewerage},
+                {ServiceCodes.Gas, p => p.Gas},
+                {ServiceCodes.Garbage, p => p.Garbage},
             };
 
         private readonly IEnumerable<Person> _personsInfos;
@@ -63,10 +59,11 @@ namespace Subs4.CsvReportReaderLib
 
                 Heating = NullableConvert.ToDouble(line[8]),
                 HotWater = NullableConvert.ToDouble(line[10]),
-                ColdWater = NullableConvert.ToDouble(line[11]),
-                Sewerage = NullableConvert.ToDouble(line[13]),
-                Gas = NullableConvert.ToDouble(line[14]),
-                Sum = NullableConvert.ToDouble(line[17]),
+                Garbage = NullableConvert.ToDouble(line[11]),
+                ColdWater = NullableConvert.ToDouble(line[13]),
+                Sewerage = NullableConvert.ToDouble(line[14]),
+                Gas = NullableConvert.ToDouble(line[17]),
+                Sum = NullableConvert.ToDouble(line[18]),
 
                 //HotWater = NullableConvert.ToDouble(line[8]),
                 //ColdWater = NullableConvert.ToDouble(line[10]),

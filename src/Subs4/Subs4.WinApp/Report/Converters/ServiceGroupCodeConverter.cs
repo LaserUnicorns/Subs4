@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Data;
+using Subs4.Common;
 
 namespace Subs4.WinApp.Report.Converters
 {
@@ -10,13 +11,13 @@ namespace Subs4.WinApp.Report.Converters
         private static readonly Dictionary<string, string> Services =
             new Dictionary<string, string>
             {
-                //{"03", "Содержание"},
-                {"01", "Содержание"},
-                {"10", "Отопление"},
-                {"11", "Горячая вода"},
-                {"12", "Холодная вода"},
-                {"13", "Канализация"},
-                {"22", "Газ"}
+                {ServiceCodes.Maintenance, "Содержание"},
+                {ServiceCodes.Heating, "Отопление"},
+                {ServiceCodes.HotWater, "Горячая вода"},
+                {ServiceCodes.ColdWater, "Холодная вода"},
+                {ServiceCodes.Sewerage, "Канализация"},
+                {ServiceCodes.Gas, "Газ"},
+                {ServiceCodes.Garbage, "Вывоз мусора"},
             };
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
