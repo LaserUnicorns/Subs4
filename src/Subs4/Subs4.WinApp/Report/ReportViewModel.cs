@@ -64,9 +64,19 @@ namespace Subs4.WinApp.Report
             get { return ConfigurationManager.AppSettings["XmlPersonsFilePath"]; }
         }
 
+        private static bool ParseCsvPersonWithHeating => Convert.ToBoolean(ConfigurationManager.AppSettings["ParseWithHeating"]);
+
+        private static CsvReportReaderOptions CsvReportReadingOptions => new CsvReportReaderOptions
+        {
+            ParseCsvPersonOptions = new ParseCsvPersonOptions
+            {
+                ParseWithHeating = ParseCsvPersonWithHeating
+            }
+        };
+
         public ReportViewModel(XmlPersonsDAL xmlPersonsDAL, DbfDAL dbfDAL)
         {
-            _csvReportReader = new CsvReportReader(xmlPersonsDAL.GetPersons(XmlPersonsFilePath));
+            _csvReportReader = new CsvReportReader(xmlPersonsDAL.GetPersons(XmlPersonsFilePath), CsvReportReadingOptions);
             _dbfDAL = dbfDAL;
 
             LoadCsvReportCommand = new DelegateCommand(LoadCsvReport);

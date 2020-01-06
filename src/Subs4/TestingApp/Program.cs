@@ -22,7 +22,7 @@ namespace TestingApp
 
             var xmldal = new XmlPersonsDAL();
             var persons = xmldal.GetPersons(personsFileName);
-            var reader = new CsvReportReader(persons);
+            var reader = new CsvReportReader(persons, new CsvReportReaderOptions {ParseCsvPersonOptions = new ParseCsvPersonOptions {ParseWithHeating = false} });
             var report = reader.Load(filename);
 
             ReportCreator.CreateReport(report, pdfFileName);

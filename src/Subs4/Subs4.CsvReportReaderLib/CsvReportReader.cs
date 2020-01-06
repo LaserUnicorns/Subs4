@@ -27,10 +27,12 @@ namespace Subs4.CsvReportReaderLib
             };
 
         private readonly IEnumerable<Person> _personsInfos;
+        private readonly CsvReportReaderOptions _options;
 
-        public CsvReportReader(IEnumerable<Person> personsInfos)
+        public CsvReportReader(IEnumerable<Person> personsInfos, CsvReportReaderOptions options)
         {
             _personsInfos = personsInfos.ToList();
+            _options = options;
         }
 
         public IEnumerable<Person> Load(string filename)
@@ -41,7 +43,7 @@ namespace Subs4.CsvReportReaderLib
                                  .Skip(FOOTER_ROWS)
                                  .Reverse()
                                  .Select(x => x.Split(';'))
-                                 .Select(ToCsvPerson)
+                                 .Select(line => ToCsvPerson(line, _options.ParseCsvPersonOptions))
                                  .GroupBy(x => x.LastNameWithInitials)
                                  .Select(ToPerson)
                                  .ToList();
@@ -49,29 +51,44 @@ namespace Subs4.CsvReportReaderLib
             return r;
         }
 
-        private static CsvPerson ToCsvPerson(string[] line)
+        private static CsvPerson ToCsvPerson(string[] line, ParseCsvPersonOptions options)
         {
-            var person = new CsvPerson
+            CsvPerson person;
+
+            if (options.ParseWithHeating)
             {
-                LastNameWithInitials = line[1],
-                Address = line[5],
-                Maintenance = NullableConvert.ToDouble(line[7]),
+                person = new CsvPerson
+                {
+                    LastNameWithInitials = line[1],
+                    Address = line[5],
+                    Maintenance = NullableConvert.ToDouble(line[7]),
 
-                Heating = NullableConvert.ToDouble(line[8]),
-                HotWater = NullableConvert.ToDouble(line[10]),
-                Garbage = NullableConvert.ToDouble(line[11]),
-                ColdWater = NullableConvert.ToDouble(line[13]),
-                Sewerage = NullableConvert.ToDouble(line[14]),
-                Gas = NullableConvert.ToDouble(line[17]),
-                Sum = NullableConvert.ToDouble(line[18]),
+                    Heating = NullableConvert.ToDouble(line[8]),
+                    HotWater = NullableConvert.ToDouble(line[10]),
+                    Garbage = NullableConvert.ToDouble(line[11]),
+                    ColdWater = NullableConvert.ToDouble(line[13]),
+                    Sewerage = NullableConvert.ToDouble(line[14]),
+                    Gas = NullableConvert.ToDouble(line[17]),
+                    Sum = NullableConvert.ToDouble(line[18]),
+                };
+            }
+            else
+            {
+                person = new CsvPerson
+                {
+                    LastNameWithInitials = line[1],
+                    Address = line[5],
+                    Maintenance = NullableConvert.ToDouble(line[7]),
 
-                //HotWater = NullableConvert.ToDouble(line[8]),
-                //ColdWater = NullableConvert.ToDouble(line[10]),
-                //Sewerage = NullableConvert.ToDouble(line[11]),
-                //Gas = NullableConvert.ToDouble(line[13]),
-                //Sum = NullableConvert.ToDouble(line[14])
-            };
-
+                    HotWater = NullableConvert.ToDouble(line[8]),
+                    Garbage = NullableConvert.ToDouble(line[10]),
+                    ColdWater = NullableConvert.ToDouble(line[11]),
+                    Sewerage = NullableConvert.ToDouble(line[13]),
+                    Gas = NullableConvert.ToDouble(line[14]),
+                    Sum = NullableConvert.ToDouble(line[17])
+                };
+            }
+            
             if (Math.Abs(person.Sum.GetValueOrDefault() - person.CalcSum) > 0.01)
                 throw new BadRowException(person.LastNameWithInitials);
 
@@ -119,6 +136,10 @@ namespace Subs4.CsvReportReaderLib
             if (csvPersons.Count() == 2)
             {
                 CsvPerson csvPerson = csvPersons.First(x => x.Sum != x.Maintenance);
+                if (!csvPerson.Maintenance.HasValue && csvPerson.Sum == 0)
+                {
+                    csvPerson = csvPersons.First(x => x.Sum > 0);
+                }
 
                 foreach (var benefitCode in _benefitCodes)
                 {
@@ -135,9 +156,9 @@ namespace Subs4.CsvReportReaderLib
                     }
                 }
 
-                var otherCsvPerson = csvPersons.First(x => x.Sum == x.Maintenance);
+                var otherCsvPerson = csvPersons.FirstOrDefault(x => x.Sum == x.Maintenance);
 
-                if (otherCsvPerson.Maintenance.HasValue)
+                if (otherCsvPerson?.Maintenance != null)
                 {
                     var benefit = new Benefit
                     {

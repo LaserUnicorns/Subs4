@@ -42,6 +42,8 @@
     <Compile Include="BadRowException.cs" />
     <Compile Include="CsvPerson.cs" />
     <Compile Include="CsvReportReader.cs" />
+    <Compile Include="CsvReportReaderOptions.cs" />
+    <Compile Include="ParseCsvPersonOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
